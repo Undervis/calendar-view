@@ -8,37 +8,98 @@
     android:windowNoTitle="true"
     tools:context=".MainActivity">
 
-    <CalendarView
-        android:id="@+id/y"
-
+    <com.shuhart.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView"
         android:layout_width="0dp"
         android:layout_height="500dp"
-        android:layout_marginBottom="30dp"
         android:background="@drawable/ed_bg"
-        android:dateTextAppearance="@style/CalendarViewDateCustomText"
-        android:maxDate="12/31/2022"
-        android:minDate="1/1/2022"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        android:paddingBottom="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:mcv_allowClickDaysOutsideCurrentMonth="false"
+        app:mcv_calendarMode="month"
+        app:mcv_dateTextAppearance="@style/CalendarViewDateCustomText"
+        app:mcv_firstDayOfWeek="monday"
+        app:mcv_selectionColor="@color/cal_selector"
+        app:mcv_showOtherDates="all"
+        app:mcv_tileWidth="match_parent"
+        app:mcv_weekDayTextAppearance="@style/CalendarViewWeekCustomText" />
 
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="5dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/y">
+        app:layout_constraintTop_toBottomOf="@+id/calendarView">
 
         <LinearLayout
             android:id="@+id/scrooler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/activist"
+                    android:text="25.10.2022"
+                    android:textColor="#404040"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Title"
+                    android:textAppearance="@style/CalendarViewWeekCustomText"
+                    android:textColor="#1F2229"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/brutal"
+                    android:text="Description"
+                    android:textAppearance="@style/CalendarViewWeekCustomText"
+                    android:textColor="#4D4D4D"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+                <ImageView
+                    android:id="@+id/imPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/corners"
+                    android:maxWidth="350pt"
+                    android:minWidth="100pt"
+                    app:layout_constraintStart_toStartOf="@+id/tvDescription"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDescription"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

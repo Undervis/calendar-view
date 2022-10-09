@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="CalendarViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:headerMonthTextAppearance">@android:color/white</item>
-    </style>
-</resources>
